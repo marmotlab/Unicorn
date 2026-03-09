@@ -26,45 +26,45 @@
 </p>
 
 ## 📋 Table of Contents
-- [✨ Highlights](#-highlights)
-- [📦 Requirements](#-requirements)
-- [🔧 Installation](#-installation)
-- [📁 Project Structure](#-project-structure)
-- [🗺️ Supported Datasets](#️-supported-datasets)
-- [⚙️ Configuration](#️-configuration)
-- [🚀 Training](#-training)
+- [Highlights](#-highlights)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [Project Structure](#-project-structure)
+- [Supported Datasets](#️-supported-datasets)
+- [Configuration](#️-configuration)
+- [Training](#-training)
   - [Single-Scenario Training](#-single-scenario-training)
   - [Multi-Scenario Co-Training](#-multi-scenario-co-training)
-- [🧪 Testing](#-testing)
-- [📊 Evaluation with Non-RL Baselines](#-evaluation-with-non-rl-baselines)
-- [📝 Citation](#-citation)
-- [📄 License](#-license)
+- [Testing](#-testing)
+- [Evaluation with Non-RL Baselines](#-evaluation-with-non-rl-baselines)
+- [Citation](#-citation)
+- [License](#-license)
 
 ---
 
-## ✨ Highlights
+## Highlights
 
-- 🧩 **Unified Traffic Movement Representation**: A traffic movement-based state-action representation that unifies intersection states and signal phases across different intersection topologies.
-- 🧠 **Universal Traffic Representation (UTR) Module**: A decoder-only feature extraction architecture with cross-attention, designed to capture general traffic features across different intersections.
-- 🔍 **Intersection-Specific Representation (ISR) Module**: A feature extraction module combining a Variational Autoencoder (VAE) and contrastive learning to capture intersection-specific characteristics.
-- 🤝 **Collaborative Multi-Intersection Learning**: An attention-based coordination mechanism that adaptively models state-action dependencies among neighboring intersections for scalable network-level traffic signal control.
-- 🏙️ **Evaluation on Diverse Traffic Networks**: Experiments conducted on eight traffic datasets in SUMO, including three synthetic traffic networks and five real-world city-scale networks, supporting both single-scenario training and multi-scenario joint training.
+- **Unified Traffic Movement Representation**: A traffic movement-based state-action representation that unifies intersection states and signal phases across different intersection topologies.
+- **Universal Traffic Representation (UTR) Module**: A decoder-only feature extraction architecture with cross-attention, designed to capture general traffic features across different intersections.
+- **Intersection-Specific Representation (ISR) Module**: A feature extraction module combining a Variational Autoencoder (VAE) and contrastive learning to capture intersection-specific characteristics.
+- **Collaborative Multi-Intersection Learning**: An attention-based coordination mechanism that adaptively models state-action dependencies among neighboring intersections for scalable network-level signal control.
+- **Evaluation on Diverse Traffic Networks**: Experiments conducted on eight traffic datasets in SUMO, including three synthetic traffic networks and five real-world city-scale networks, supporting both single-scenario training and multi-scenario joint training.
 
 
 ---
 
-## 📦 Requirements
+## Requirements
 
-| Dependency | Version            |
-|:-----------|:-------------------|
-| Python | ≥ 3.8              |
-| [SUMO](https://sumo.dlr.de/) | ≥ 1.16.0           |
-| PyTorch | 1.13.0 (CUDA 11.7) |
-| Ray | 2.3.1              |
-| Gym | 0.26.2             |
-| SciPy | 1.10.1             |
-| einops | 0.6.0              |
-| NumPy | 1.24.2             |
+| Dependency  | Version            |
+|:------------|:-------------------|
+| Python      | ≥ 3.8              |
+| SUMO        | ≥ 1.16.0           |
+| PyTorch     | 1.13.0 (CUDA 11.7) |
+| Ray         | 2.3.1              |
+| Gym         | 0.26.2             |
+| SciPy       | 1.10.1             |
+| einops      | 0.6.0              |
+| NumPy       | 1.24.2             |
 | TensorBoard | 2.13.0             |
 
 > [!NOTE]
@@ -72,7 +72,7 @@
 
 ---
 
-## 🔧 Installation
+## Installation
 
 ### Step 1: Clone the Repository
 
@@ -124,7 +124,7 @@ sumo --version
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Unicorn/
@@ -160,7 +160,7 @@ Unicorn/
 
 ---
 
-## 🗺️ Supported Datasets
+## Supported Datasets
 
 Unicorn is evaluated on **8 SUMO traffic network scenarios** from three benchmark suites:
 
@@ -201,7 +201,7 @@ All configurations are centralized in [`parameters.py`](parameters.py). Below ar
 
 ---
 
-## 🚀 Training
+## Training
 
 ### 🔸 Single-Scenario Training
 
@@ -269,7 +269,7 @@ class SUMO_PARAMS:
 python driver_unicorn.py
 ```
 
-### 📈 Monitoring Training
+### Monitoring Training
 
 Training logs are automatically recorded with [TensorBoard](https://www.tensorflow.org/tensorboard):
 
@@ -282,7 +282,7 @@ Key metrics tracked:
 - **Actor/Critic VAE Loss & Contrastive Loss**
 - **Episode Reward, Episode Length, Action Change Rate**
 
-### 💾 Resume Training from Checkpoint
+### Resume Training from Checkpoint
 
 To resume training from a saved checkpoint:
 
@@ -294,7 +294,7 @@ class INPUT_PARAMS:
 
 ---
 
-## 🧪 Testing
+## Testing
 
 After training, evaluate the trained model on specific test scenarios.
 
@@ -329,7 +329,7 @@ python evaluator_rl.py
 
 ---
 
-## 📊 Evaluation with Non-RL Baselines
+## Evaluation with Non-RL Baselines
 
 Unicorn includes built-in non-RL baseline evaluators for comparison:
 
@@ -352,7 +352,7 @@ agent_name_list = ['FIXED', 'GREEDY', 'PRESSURE']
 
 ---
 
-## 📝 Citation
+## Citation
 
 If you find this code useful in your research, please consider citing our paper:
 
@@ -388,7 +388,7 @@ You may also find our related work useful:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
