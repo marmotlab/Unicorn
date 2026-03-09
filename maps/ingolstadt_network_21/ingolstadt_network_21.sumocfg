@@ -1,0 +1,11 @@
+<configuration>
+  <input>
+    <net-file value="ingolstadt_network_21.net.xml"/>
+	<route-files value="ingolstadt_network_21.rou.xml"/>
+    <additional-files value="ingolstadt_network_e1.add.xml, ingolstadt_network_e2.add.xml"/>
+  </input>
+  <time>
+    <begin value="57600"/>
+    <end value="61200"/>
+  </time>
+</configuration>

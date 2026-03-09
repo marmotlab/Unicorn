@@ -1,0 +1,11 @@
+<configuration>
+  <input>
+    <net-file value="cologne_network_8.net.xml"/>
+	<route-files value="cologne_network_8.rou.xml"/>
+    <additional-files value="cologne_network_e1.add.xml, cologne_network_e2.add.xml"/>
+  </input>
+  <time>
+    <begin value="25200"/>
+    <end value="28800"/>
+  </time>
+</configuration>

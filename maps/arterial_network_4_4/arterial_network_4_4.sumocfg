@@ -1,0 +1,11 @@
+<configuration>
+  <input>
+    <net-file value="arterial_network_4_4.net.xml"/>
+    <route-files value="arterial_network_4_4.rou.xml"/>
+    <additional-files value="arterial_network_4_4.add.xml"/>
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="3600"/>
+  </time>
+</configuration>
