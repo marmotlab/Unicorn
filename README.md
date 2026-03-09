@@ -12,8 +12,8 @@
   <b>Official implementation of Unicorn, accepted in IEEE Transactions on Intelligent Transportation Systems (T-ITS) 2026.</b><br>
     <i>
     <a href="https://scholar.google.com/citations?user=o9zHCC0AAAAJ&hl=zh-CN">Yifeng Zhang</a>,
-    Yilin Liu</a>,
-    Ping Gong</a>,
+    <a href="#">Yilin Liu</a>,
+    <a href="#">Ping Gong</a>,
     <a href="https://scholar.google.com/citations?user=kW4MON4AAAAJ&hl=zh-CN">Peizhuo Li</a>,
     <a href="https://scholar.google.com/citations?user=Oc7gaikAAAAJ&hl=zh-CN">Mingfeng Fan</a>,
     <a href="https://scholar.google.com/citations?user=n7NzZ0sAAAAJ&hl=zh-CN">Guillaume Sartoretti</a>
@@ -26,19 +26,19 @@
 </p>
 
 ## 📋 Table of Contents
-- [Highlights](#-highlights)
-- [Requirements](#-requirements)
-- [Installation](#-installation)
-- [Project Structure](#-project-structure)
-- [Supported Datasets](#️-supported-datasets)
-- [Configuration](#️-configuration)
-- [Training](#-training)
-  - [Single-Scenario Training](#-single-scenario-training)
-  - [Multi-Scenario Co-Training](#-multi-scenario-co-training)
-- [Testing](#-testing)
-- [Evaluation with Non-RL Baselines](#-evaluation-with-non-rl-baselines)
-- [Citation](#-citation)
-- [License](#-license)
+- [Highlights](#highlights)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Supported Datasets](#️supported-datasets)
+- [Configuration](#️configuration)
+- [Training](#training)
+  - [Single-Scenario Training](#single-scenario-training)
+  - [Multi-Scenario Co-Training](#multi-scenario-co-training)
+- [Testing](#testing)
+- [Evaluation with Non-RL Baselines](#evaluation-with-non-rl-baselines)
+- [Citation](#citation)
+- [License](#license)
 
 ---
 
