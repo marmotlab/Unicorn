@@ -67,19 +67,16 @@ class Evaluator:
         obs_n = self.reset()
         done = False
         while not done:
-            if self.model_name == 'UNICORN':
+            if self.model_name == 'UNICORN' or self.model_name == 'HETEROLIGHT':
                 action_dict = OrderedDict()
                 phase_vec_dict, phase_mask_dict = self.env.get_phase_vec_mask_dict()
                 int_attr_vec_dict = self.env.get_int_attr_vec_dict()
 
-                multi_agent_obs = convert_to_tensor(data=np.array(list(obs_n.values())), data_type=torch.float32,
-                                                    device=self.device)
-                multi_agent_phase_vec = convert_to_tensor(data=np.array(list(phase_vec_dict.values())),
-                                                          data_type=torch.float32, device=self.device)
-                multi_agent_phase_mask = convert_to_tensor(data=np.array(list(phase_mask_dict.values())),
-                                                           data_type=torch.float32, device=self.device)
-                multi_agent_int_attr_vec = convert_to_tensor(data=np.array(list(int_attr_vec_dict.values())),
-                                                             data_type=torch.float32, device=self.device)
+                multi_agent_obs = convert_to_tensor(data=np.array(list(obs_n.values())), data_type=torch.float32, device=self.device)
+                multi_agent_phase_vec = convert_to_tensor(data=np.array(list(phase_vec_dict.values())), data_type=torch.float32, device=self.device)
+                multi_agent_phase_mask = convert_to_tensor(data=np.array(list(phase_mask_dict.values())), data_type=torch.float32, device=self.device)
+                multi_agent_int_attr_vec = convert_to_tensor(data=np.array(list(int_attr_vec_dict.values())), data_type=torch.float32, device=self.device)
+
                 with torch.no_grad():
                     multi_agent_policy, self.rnn_states_actor, _, _, _ = self.local_network(multi_agent_obs,
                                                                                             multi_agent_phase_vec,
@@ -89,6 +86,7 @@ class Evaluator:
                     multi_agent_policy_dist = Categorical(multi_agent_policy)
                     multi_agent_action = multi_agent_policy_dist.sample().reshape(-1)
                     multi_agent_logprob_p = multi_agent_policy_dist.log_prob(multi_agent_action).reshape(-1)
+
                 action_list = multi_agent_action.detach().cpu().clone().numpy().flatten()
                 for i, tls in enumerate(self.env.rl_tls_list):
                     if action_list[i] >= len(self.env.tls_dict[tls].action_space):
@@ -99,6 +97,7 @@ class Evaluator:
                             action_list[i] = action.detach().cpu().clone().numpy().flatten()
                             multi_agent_action[i] = action
                             multi_agent_logprob_p[i] = logprob_p
+
                     action_dict[tls] = action_list[i]
 
             else:
@@ -152,7 +151,7 @@ if __name__ == '__main__':
     exp_dir = './Test'
 
     # Testing parameter for learning based method
-    agent_name_list = ['UNICORN']  # ['UNICORN']
+    agent_name_list = ['UNICORN']  # ['UNICORN', 'HETEROLIGHT']
     model_path_list = [None] # To be set by the user
     # Learning Test
     for model_name, model_path in zip(agent_name_list, model_path_list):
@@ -164,6 +163,14 @@ if __name__ == '__main__':
                             int_vec_dim=env.tls_int_attr_space,
                             actor_lr=1e-4,
                             critic_lr=1e-4)
+
+        elif model_name == 'HETEROLIGHT':
+            from models.HeteroLight import HeteroLight
+            model = HeteroLight(input_dim=env.tls_obs_space,
+                                agent_dim=env.tls_agent_space,
+                                int_vec_dim=env.tls_int_attr_space,
+                                actor_lr=1e-4,
+                                critic_lr=1e-4)
 
         else:
             raise NotImplementedError

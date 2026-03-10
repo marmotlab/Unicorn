@@ -15,7 +15,7 @@ class INPUT_PARAMS:
 
 class EXPERIMENT_PARAMS:
     BASE_PATH           = 'Train_MATSC'
-    EXPERIMENT_NAME     = '{}_{}_{}_{}_Unicorn_Manhattan'.format(date.year, date.month, date.day, date.hour)
+    EXPERIMENT_NAME     = '{}_{}_{}_{}_UNICORN'.format(date.year, date.month, date.day, date.hour)
     EXPERIMENT_PATH     = './{}/{}'.format(BASE_PATH, EXPERIMENT_NAME)
     MODEL_PATH          = EXPERIMENT_PATH + '/model'
     GIFS_PATH           = EXPERIMENT_PATH + '/gifs'

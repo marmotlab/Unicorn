@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <b>Official implementation of Unicorn, accepted in IEEE Transactions on Intelligent Transportation Systems (T-ITS) 2026.</b><br>
+  <b>Official implementation of Unicorn, accepted in IEEE Transactions on Intelligent Transportation Systems (T-ITS).</b><br>
     <i>
     <a href="https://scholar.google.com/citations?user=o9zHCC0AAAAJ&hl=zh-CN">Yifeng Zhang</a>,
     <a href="#">Yilin Liu</a>,
